@@ -8,6 +8,7 @@ Notes from learning about Salesforce
 
 - SOQL: Salesforce Object Query Language
 - LWC: Lightning Web Components
+- SLDS: Salesforce Lightning Design System
 
 ---
 
@@ -59,9 +60,33 @@ Salesforce really pumps the use of "declarative development" using their "metada
 - What Salesforce calls tables in a database
 - There are standard objects like Accounts and Contacts
 - Also custom objects you can create when modeling things specific to your business
+- There are several other types of objects
+  - External objects
+  - Platform events
+  - BigObjects
+- They can be classified as Enterprise Application objects or Light Application objects
 - Records are rows in object database tables
 - Fields are columns in object database tables
 - You can still add custom fields to standard objects
+
+---
+
+### Object Relationships
+
+- Two main types of object relationships
+  - Lookup (basically a foreign key in SQL)
+    - Typically, you use lookup relationships when objects are only related in some cases
+    - Can be one-to-one or one-to-many
+    - Objects in lookup relationships usually work as stand-alone objects and have their own tabs in the user interface
+  - Master-Detail
+    - In this type of relationship, one object is the master and another is the detail
+      - The detail object doesn't work as a standalone object
+    - The master object controls certain behaviors of the detail object, like who can view the detail’s data
+    - With a master-detail relationship between Property and Offer, you can delete the property and all its associated offers from your system
+    - When you’re creating master-detail relationships, you always create the relationship field on the detail object
+- There a third relationship type called a hierarchical relationship
+  - The main difference is that hierarchical relationships are only available on the User object
+  - You can use them for things like creating management chains between users
 
 ---
 
@@ -130,5 +155,26 @@ Salesforce really pumps the use of "declarative development" using their "metada
   - Salesforce's proprietary programming language with Java-like syntax
   - Strongly typed, object-oriented programming language that allows developers to execute flow and transaction control statements on Salesforce servers in conjunction with calls to the API
   - Apex code can be initiated by Web service requests and from triggers on objects
+
+---
+
+### Salesforce APIs
+
+- Lightning platform APIs
+  - REST
+  - Soap
+  - Bulk
+  - Streaming
+
+---
+
+### Heroku
+
+- Salesforce has tight integration with Heroku
+  - Salesforce bought Heroku in 2010
+- Heroku is a platform focused on the processes of deploying, configuring, scaling, tuning, and managing apps as simple and straightforward as possible
+- Heroku Connect unifies your Salesforce data with your Heroku Postgres data so you don’t have to manage moving information across platforms
+- So you can write a app, deploy/host it in Heroku, and have tight integration with Salesforce
+- You can have a combination of Visualforce or Lightning components, microservices hosted on Heroku
 
 ---
