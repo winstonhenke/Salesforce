@@ -12,6 +12,14 @@ Notes from learning about Salesforce
 
 ---
 
+## Questions
+
+- When you clone a permission set it defaults the API name to be the same as the cloned permission set and doesn't force you to update it
+  - How  can you  have two permission sets with the same API name? How do you distinguish between them and why doesn't this need to be unique
+  - <https://trailhead.salesforce.com/content/learn/modules/data_security/data_security_objects?trail_id=force_com_dev_beginner&trailmix_creator_id=whenke&trailmix_slug=getting-started#Tdxn4tBK-heading11>
+
+---
+
 ## Concepts
 
 ### Salesforce Platform
@@ -176,5 +184,42 @@ Salesforce really pumps the use of "declarative development" using their "metada
 - Heroku Connect unifies your Salesforce data with your Heroku Postgres data so you don’t have to manage moving information across platforms
 - So you can write a app, deploy/host it in Heroku, and have tight integration with Salesforce
 - You can have a combination of Visualforce or Lightning components, microservices hosted on Heroku
+
+---
+
+### Permissions
+
+- [Overview of Data Security](https://trailhead.salesforce.com/content/learn/modules/data_security)
+- Profiles should contain the bare minimum permissions for a role. Then use permission sets to extend permissions for specific groups of users
+- Permissions can be set per: org | object | field | record
+- Permissions of an object on the detail side of a master-detail relationship automatically inherits the sharing setting of its parent. You can not set permissions on the detail object
+
+#### Record Level Permissions
+
+- [Control Access to Records](https://trailhead.salesforce.com/content/learn/modules/data_security/data_security_records)
+- You can allow particular users to view an object, but then restrict the individual object records they're allowed to see
+- The permissions on a record are always evaluated according to a combination of object-level, field-level, and record-level permissions
+- When object-level permissions conflict with record-level permissions, the most restrictive settings win
+- You can manage record-level access in these four ways(listed in order of increasing access)
+  - Organization-wide (defaults)
+    - Specify the default level of access users have to each others' records
+    - You use org-wide sharing settings to lock down your data to the most restrictive level, and then use the other record-level security and sharing tools to selectively give access to other users
+  - Role hierarchies
+    - Give access for users higher in the hierarchy to all records owned by users below them in the hierarchy
+    - Only used to give additional users access to records. They can’t be stricter than your organization-wide default settings
+  - Sharing rules
+    - Automatic exceptions to organization-wide defaults for particular groups of users, so they can get to records they don’t own or can’t normally see
+    - Sharing rules, like role hierarchies, are only used to give additional users access to records. They can’t be stricter than your organization-wide default settings
+  - Manual sharing
+    - Allows owners of particular records to share them with other users. Although manual sharing isn’t automated like org-wide sharing settings, role hierarchies, or sharing rules, it can be useful in some situations, such as when a recruiter going on vacation needs to temporarily assign ownership of a job application to someone else
+- The sharing model for an object can be set to one of these settings
+  - Private
+    - Only the record owner, and users above that role in the hierarchy, can view, edit, and report on those records
+  - Public Read Only
+    - All users can view and report on records, but only the owner, and users above that role in the hierarchy, can edit them
+  - Public Read/Write
+    - All users can view, edit, and report on all records
+  - Controlled by Parent
+    - A user can view, edit, or delete a record if she can perform that same action on the record it belongs to
 
 ---
