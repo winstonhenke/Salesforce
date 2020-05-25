@@ -22,6 +22,8 @@ Notes from learning about Salesforce
 
 ## Concepts
 
+---
+
 ### Salesforce Platform
 
 - <https://trailhead.salesforce.com/content/learn/modules/starting_force_com/starting_understanding_arch?trailmix_slug=getting-started#Tdxn4tBK-heading2>
