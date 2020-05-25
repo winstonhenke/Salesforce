@@ -56,7 +56,7 @@ Documentation from learning about the Apex programming language
 
 ---
 
-### DML | Database Methods | SOQL Queries
+### DML | Database Methods | SOQL Queries | SOSL Queries
 
 #### Apex Data Manipulation Language(DML)
 
@@ -147,6 +147,57 @@ Documentation from learning about the Apex programming language
       }
       ```
 
+### SOSL Queries
+
+- Salesforce Object Search Language (SOSL) is a Salesforce search language that is used to perform text searches in records
+- Use SOSL to search fields across multiple standard and custom object records
+- Text searches are case-insensitive
+- The SearchGroup in SOSL is optional
+  - It is the scope of the fields to search
+  - If not specified, the default search scope is all fields
+  - SearchGroup can take one of the following values
+    - ALL FIELDS
+    - NAME FIELDS
+      - This is kind of weird. Some fields seem to be categorized as Name Fields but some objects have more than one
+      - See: [Local Name Fields](https://help.salesforce.com/articleView?id=admin_local_name_fields.htm)
+    - EMAIL FIELDS
+    - PHONE FIELDS
+    - SIDEBAR FIELDS
+- The SearchQuery in SOSL contains two types of text
+  - Single word
+    - Such as `test` or `hello`
+    - Words in the SearchQuery are delimited by spaces, punctuation, and changes from letters to digits (and vice-versa)
+    - Words are always case insensitive
+  - Phrases
+    - A collection of words and spaces surrounded by double quotes such as `"john smith"`
+    - Multiple words can be combined together with **logic and grouping operators** to form a more complex query
+- See Search Examples [here](https://trailhead.salesforce.com/content/learn/modules/apex_database/apex_database_sosl) for more examples
+- The SOSL search results are returned in a list of lists. Each list contains an array of the returned records for each object requested
+  - Unsure if a empty search result creates a empty array or if it is omitted
+- You can filter, reorder, and limit the returned results of a SOSL query
+  - Because SOSL queries can return multiple sObjects, those filters are applied within each sObject inside the `RETURNING` clause
+
+### SOQL vs SOSL
+
+- SOSL enables you to search text, email, and phone fields for multiple objects simultaneously
+- SOQL only allows you to query one object at a time
+- More/different DB indexes available in SOSL
+- Syntax is different. SOQL is basically standard SQL where SOSL is a very different Salesforce search language
+- SOSL matches fields based on a word match while SOQL performs an exact match by default (when not using wildcards)
+  - For example, searching for 'Digital' in SOSL returns records whose field values are 'Digital' or 'The Digital Company', but SOQL returns only records with field values of 'Digital'
+- The search query for SOSL in the Query Editor and the API must be enclosed within curly brackets (`{Wingo}`). In contrast, in Apex the search query is enclosed within single quotes (`'Wingo'`)
+- SOQL and SOSL statements in Apex can reference Apex code variables and expressions if they are preceded by a colon (`:`)
+  - The use of a local variable within a SOQL or SOSL statement is called a bind
+  - Ex: `WHERE Department=:targetDepartment`
+- [SOQL vs SOSL - Which one to use and when?](https://salesforce.stackexchange.com/questions/9028/soql-vs-sosl-which-one-to-use-and-when)
+- [SOQL vs SOSL](https://developer.salesforce.com/forums?id=906F00000008y69IAA)
+  - > SOSL can search multiple object types, which requires multiple separate queries in SOQL, in addition all the relevant fields are already text indexed for SOSL, but the same fields don't have DB indexes, so SOQL queries against them will be slower. If you have a lot of data, these differences will be much more apparent.
+  - > In my development, it's 99% SOQL.  Where SOSL has come up is when there is a need to allow an end-user to take a "broad brush stroke" across the data to find a record to work further with.  Once found, SOQL queries take over.
+    >
+    > SOQL should be used when you need precision in what is returned.  With Salesforce functionality being so business process driven, precision is usually very important and that's why SOQL is used more often.  It can also be used to craft a search-like query, but it's probably meant more for precise queries.
+    > SOSL can be used when precision is not as important and when you find yourself constructing a crazy WHERE clause in a SOQL query.  It might just be easier to use SOSL.  SOSL can give you a bit more assurance that records you want returned will be even if you end up with more data to sift through.  With SOQL, you are going field by field to match criteria and you might exclude records you don't want excluded.  Also, if you add new fields to the system, SOSL will pick up on those and search them whereas SOQL will not.
+    > SOSL comes up in specific use cases for me, but most of the time SOQL works just fine too.
+
 ---
 
 ### Working with Related Records
@@ -158,9 +209,6 @@ Documentation from learning about the Apex programming language
   - However, you can't change the account's name without updating the account itself with a separate DML call
 - The `delete` operation supports cascading deletions
   - If you delete a parent object, you delete its children automatically, as long as each child record can be deleted
-- SOQL statements in Apex can reference Apex code variables and expressions if they are preceded by a colon (`:`)
-  - The use of a local variable within a SOQL statement is called a bind
-  - Ex: `WHERE Department=:targetDepartment`
 - To get child records related to a parent record, add an inner query for the child records
   - Ex: `SELECT Name, (SELECT LastName FROM Contacts) FROM Account WHERE Name = 'SFDC Computing'`
     - `(SELECT LastName FROM Contacts)` is the subquery and `FROM Contacts` specifies the Contacts Child Relationship Name, which is a default **relationship** on Account that links accounts and contacts

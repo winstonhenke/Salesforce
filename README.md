@@ -35,6 +35,7 @@ Notes from learning about Salesforce
 ## Definitions
 
 - SOQL: Salesforce Object Query Language
+- SOSL: Salesforce Object Search Language
 - LWC: Lightning Web Components
 - SLDS: Salesforce Lightning Design System
 
