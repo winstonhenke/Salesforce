@@ -223,3 +223,13 @@ Salesforce really pumps the use of "declarative development" using their "metada
     - A user can view, edit, or delete a record if she can perform that same action on the record it belongs to
 
 ---
+
+### Formulas & Validation
+
+- Formula fields calculate values using fields within a single record
+- Roll-up summary fields calculate values from a set of related records
+  - You can create roll-up summary fields that automatically display a value on a master record based on the values of records in a detail record
+  - These detail records must be directly related to the master through a **master-detail relationship**
+  - You define a roll-up summary field on the object that is on the master side of a master-detail relationship
+
+---
