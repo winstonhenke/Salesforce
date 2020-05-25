@@ -1,10 +1,17 @@
 {
   "cSpell.words": [
     "Postgres",
+    "SFDC",
     "SLDS",
     "SOQL",
+    "Trailhead",
     "Visualforce",
+    "autopopulated",
     "interoperate",
-    "microservices"
+    "microservices",
+    "multitenant",
+    "org's",
+    "subquery",
+    "upsert"
   ]
 }

@@ -4,6 +4,34 @@ Notes from learning about Salesforce
 
 ---
 
+## TOC
+
+### README
+
+- [Definitions](#definitions)
+- [Questions](#questions)
+- [Concepts](#concepts)
+  - [Salesforce Platform](#salesforce-platform)
+  - [Salesforce.com | Force.com](#salesforcecom---forcecom)
+  - [Salesforce | Lightning Platform | Sales Cloud | Service Cloud | Etc](#salesforce---lightning-platform---sales-cloud---service-cloud---etc)
+  - [Declarative Development](#declarative-development)
+  - [Org](#org)
+  - [Objects](#objects)
+  - [Object Relationships](#object-relationships)
+  - [Metadata](#metadata)
+  - [Salesforce Classic vs Lightning Experience](#salesforce-classic-vs-lightning-experience)
+  - [Lightning components, Apex, and Visualforce pages](#lightning-components--apex--and-visualforce-pages)
+  - [Salesforce APIs](#salesforce-apis)
+  - [Heroku](#heroku)
+  - [Permissions](#permissions)
+  - [Formulas & Validation](#formulas---validation)
+
+### Other Pages
+
+- [Apex](/Apex/Apex.md)
+
+---
+
 ## Definitions
 
 - SOQL: Salesforce Object Query Language
@@ -28,6 +56,18 @@ Notes from learning about Salesforce
 
 - <https://trailhead.salesforce.com/content/learn/modules/starting_force_com/starting_understanding_arch?trailmix_slug=getting-started#Tdxn4tBK-heading2>
 - Series of layers that sit on top of each other
+  - At the bottom you have the standard and custom tables/objects along with your org's metadata
+  - In the middle you have tools/mechanisms for manipulating, analyzing, exporting, integrating, etc. of that data
+  - At the top you have the apps that use the middle layers and provide the GUI CRUD operations
+
+---
+
+### Salesforce.com | Force.com
+
+- Basically Salesforce.com is the SaaS and Force.com is the PaaS
+- Salesforce.com is the out the box solution and is built on top of Force.com
+- Custom apps are built on the Force.com platform and can be used in your Salesforce.com products with are again hosted on Force.com
+- Their marketing seems to call it the "Customer 360 Platform"?
 
 ---
 
