@@ -122,28 +122,6 @@ Documentation from learning about the Apex programming language
   - **Except** you don’t need to specify the Id field in the query as it is always returned in Apex queries
 - String comparisons on `WHERE` clauses are case sensitive
 - Supports the typical syntax of: `LIKE '%some string%'`
-
----
-
-### Working with Related Records
-
-- [Working with Related Records](https://trailhead.salesforce.com/content/learn/modules/apex_database/apex_database_dml#Tdxn4tBK-heading12)
-- When inserting records related to existing records the relationship needs to already be configured
-- Fields on related records can't be updated with the same call to the DML operation and require a separate DML call. For example
-  - If inserting a new contact, you can specify the contact's related account record by setting the value of the AccountId field
-  - However, you can't change the account's name without updating the account itself with a separate DML call
-- The `delete` operation supports cascading deletions
-  - If you delete a parent object, you delete its children automatically, as long as each child record can be deleted
-- SOQL statements in Apex can reference Apex code variables and expressions if they are preceded by a colon (`:`)
-  - The use of a local variable within a SOQL statement is called a bind
-  - Ex: `WHERE Department=:targetDepartment`
-- To get child records related to a parent record, add an inner query for the child records
-  - Ex: `SELECT Name, (SELECT LastName FROM Contacts) FROM Account WHERE Name = 'SFDC Computing'`
-    - `(SELECT LastName FROM Contacts)` is the subquery and `FROM Contacts` specifies the Contacts Child Relationship Name, which is a default **relationship** on Account that links accounts and contacts
-      - The Child Relationship Name, Contacts, is defined on the Contacts object
-      - This is a Lookup Relationship but same goes for Master-Detail Relationships
-      - We know this is a standard relationship because it doesn't end with the `__r` suffix like custom relationships do
-- You can traverse a relationship from a child object (contact) to a field on its parent (Account.Name) by using dot notation
 - You can use SOQL for loops to avoid hitting the heap size limit
   - The results of a SOQL query can be iterated over within the loop
   - SOQL for loops use a different method for retrieving records, records are retrieved using efficient chunking with calls to the query and queryMore methods of the SOAP API
@@ -168,5 +146,27 @@ Documentation from learning about the Apex programming language
           //Do something
       }
       ```
+
+---
+
+### Working with Related Records
+
+- [Working with Related Records](https://trailhead.salesforce.com/content/learn/modules/apex_database/apex_database_dml#Tdxn4tBK-heading12)
+- When inserting records related to existing records the relationship needs to already be configured
+- Fields on related records can't be updated with the same call to the DML operation and require a separate DML call. For example
+  - If inserting a new contact, you can specify the contact's related account record by setting the value of the AccountId field
+  - However, you can't change the account's name without updating the account itself with a separate DML call
+- The `delete` operation supports cascading deletions
+  - If you delete a parent object, you delete its children automatically, as long as each child record can be deleted
+- SOQL statements in Apex can reference Apex code variables and expressions if they are preceded by a colon (`:`)
+  - The use of a local variable within a SOQL statement is called a bind
+  - Ex: `WHERE Department=:targetDepartment`
+- To get child records related to a parent record, add an inner query for the child records
+  - Ex: `SELECT Name, (SELECT LastName FROM Contacts) FROM Account WHERE Name = 'SFDC Computing'`
+    - `(SELECT LastName FROM Contacts)` is the subquery and `FROM Contacts` specifies the Contacts Child Relationship Name, which is a default **relationship** on Account that links accounts and contacts
+      - The Child Relationship Name, Contacts, is defined on the Contacts object
+      - This is a Lookup Relationship but same goes for Master-Detail Relationships
+      - We know this is a standard relationship because it doesn't end with the `__r` suffix like custom relationships do
+- You can traverse a relationship from a child object (contact) to a field on its parent (Account.Name) by using dot notation
 
 ---
