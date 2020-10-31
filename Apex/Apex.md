@@ -72,7 +72,7 @@ Documentation from learning about the Apex programming language
   - The `merge` statement merges up to three records of the same sObject type into one of the records, deleting the others, and re-parenting any related records
 - When inserting records, the system assigns an ID for each record
   - In addition to persisting the ID value in the database, the ID value is also autopopulated on the sObject variable that you used as an argument in the DML call
-  - So this allows you to create the create a record using an sObject and then use that same sObject to perform additional DML operations, such as `updated`, as the system will be able to map the sObject variable to its corresponding record by matching the ID
+  - So this allows you to create a record using an sObject and then use that same sObject to perform additional DML operations, such as `updated`, as the system will be able to map the sObject variable to its corresponding record by matching the ID
 - If you don’t specify a field when calling the `upsert` statement, it uses the sObject’s ID to match the sObject with existing records
   - For custom objects, specify a custom field marked as external ID
   - For standard objects, you can specify any field that has the idLookup property set to true
@@ -115,6 +115,7 @@ Documentation from learning about the Apex programming language
 
 ### SOQL Queries
 
+- Salesforce Object Query Language (SOQL) is a language that gets record data from a Salesforce database
 - They return an array of sObjects or a single sObject
 - You **cannot** specify `*` for all fields
   - You must specify every field you want to get explicitly
