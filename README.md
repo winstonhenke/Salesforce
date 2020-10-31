@@ -67,7 +67,7 @@ Notes from learning about Salesforce
 
 - Basically Salesforce.com is the SaaS and Force.com is the PaaS
 - Salesforce.com is the out the box solution and is built on top of Force.com
-- Custom apps are built on the Force.com platform and can be used in your Salesforce.com products with are again hosted on Force.com
+- Custom apps are built on the Force.com platform and can be used in your Salesforce.com products which are again hosted on Force.com
 - Their marketing seems to call it the "Customer 360 Platform"?
 
 ---
@@ -90,7 +90,7 @@ Notes from learning about Salesforce
 
 ### Declarative Development
 
-Salesforce really pumps the use of "declarative development" using their "metadata-driven architecture"
+Salesforce really pumps the use of declarative development using their "metadata-driven architecture"
 
 - Basically point and click > custom/imperative code
   - Hard to argue against not re-inventing the wheel as much as I hate point and click development
@@ -135,7 +135,7 @@ Salesforce really pumps the use of "declarative development" using their "metada
     - The master object controls certain behaviors of the detail object, like who can view the detail’s data
     - With a master-detail relationship between Property and Offer, you can delete the property and all its associated offers from your system
     - When you’re creating master-detail relationships, you always create the relationship field on the detail object
-- There a third relationship type called a hierarchical relationship
+- There is a third relationship type called a hierarchical relationship
   - The main difference is that hierarchical relationships are only available on the User object
   - You can use them for things like creating management chains between users
 
