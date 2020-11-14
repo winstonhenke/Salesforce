@@ -8,8 +8,10 @@ Notes from learning about Salesforce
 
 ### README
 
+- [Notes to Self](#notes-to-self)
 - [Definitions](#definitions)
 - [Questions](#questions)
+- [Initial Requirements Gathering](#initial-requirements-gathering)
 - [Concepts](#concepts)
   - [Salesforce Platform](#salesforce-platform)
   - [Salesforce.com | Force.com](#salesforcecom---forcecom)
@@ -25,10 +27,19 @@ Notes from learning about Salesforce
   - [Heroku](#heroku)
   - [Permissions](#permissions)
   - [Formulas & Validation](#formulas---validation)
+  - [Navigation](#Navigation)
 
 ### Other Pages
 
 - [Apex](/Apex/Apex.md)
+
+---
+
+## Notes to Self
+
+- To debug Javascript on a Lightning Component [enable debug mode for the user](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.debug_mode_enable)
+  - This will allow for more verbose logging and non minified JS
+  - Will want to turn it off after since it does slow down your browsing
 
 ---
 
@@ -49,9 +60,17 @@ Notes from learning about Salesforce
 
 ---
 
-## Concepts
+## Initial Requirements Gathering
+
+Things to consider when taking on a project
+
+- What platforms need to be supported
+  - Salesforce Classic, Lightning Experience, Salesforce Mobile app
+- Things like what currency locals need to be supported
 
 ---
+
+## Concepts
 
 ### Salesforce Platform
 
@@ -169,6 +188,8 @@ Salesforce really pumps the use of declarative development using their "metadata
 - Lightning Component Framework
   - **Client side UI rendering**
   - A UI development framework similar to AngularJS or React for desktop and mobile
+  - The Lightning Component framework is available in Salesforce Classic and Lightning Experience
+    - Lightning Components in Salesforce Classic are exposed using a Visualforce page? Only Aura Components though?
   - You can build Lightning components using two programming models
     - Lightning Web Components model
     - The original Aura Components model
@@ -183,17 +204,24 @@ Salesforce really pumps the use of declarative development using their "metadata
     - Relies less on open standards and more proprietary abstractions to do the same actions LWC can do with native JavaScript/HTML
 - Visualforce
   - **Server side UI rendering**
+  - Can run 'natively' in Salesforce Classic or in a iframe with some limitations in the Lightning Experience
   - Mobile is possible but much harder
   - A markup language that lets you create custom Salesforce pages with code that looks a lot like HTML, and optionally can use a powerful combination of Apex and JavaScript
   - Similar to technologies like: PHP, ASP, and JSP
+  - In Lightning Experience, Visualforce runs inside an iframe that’s wrapped inside the larger Lightning Experience container
+    - This iframe is constrained in some aspects. Example you will not have access to JavaScript global variables such as `window.location`. Things like the security context and CORS settings might be tricky to get right but the Lightning Experience container does expose APIs to help with this stuff.
+    - See the `sforce.one` JavaScript utility object for example
   - Visualforce pages are just HTML pages with extra tags resolved by the server
     - As a result, you can use an empty Visualforce page as a container for a JavaScript application written in something like Angular or React
       - Sounds gross
+  - Visualforce pages can be styled to look closer to the Lightning Experience using the Lightning Design System
+    - Works decent for new apps and pages, can be challenging for older ones
 - Lightning components | Visualforce pages
   - [User Interface Development Considerations](https://trailhead.salesforce.com/content/learn/modules/lex_dev_overview/lex_dev_overview_future)
   - An app would use either Lightning components or Visualforce pages, not both
-  - Lightning components: app-centric
-  - Visualforce pages: page-centric
+  - Lightning components: app-centric, Visualforce pages: page-centric. Think traditional [web app vs SPA](https://trailhead.salesforce.com/content/learn/modules/lex_dev_overview/lex_dev_overview_future?trail_id=lex_dev&trailmix_slug=getting-started)
+    - Visualforce pages are just HTML pages with extra tags resolved by the server
+    - It's possible to have a empty Visualforce page acting as a container for a reactive Javascript application written in something like Angular
   - Both can use Apex controllers though
   - With Lightning components, you’re developing components that can be pieced together to create pages. With Visualforce, you’re developing entire pages at once
   - While you can develop mobile apps with Visualforce, none of the built-in components are mobile-savvy. Which means you write more code. Lightning Components, on the other hand, is specifically optimized to perform well on mobile devices
@@ -276,3 +304,10 @@ Salesforce really pumps the use of declarative development using their "metadata
   - You define a roll-up summary field on the object that is on the master side of a master-detail relationship
 
 ---
+
+### Navigation
+
+Salesforce uses the term navigation to be a little more broad than I was expecting
+
+- > What do we actually mean by “navigation”? The first thing we might mean by navigation is user interface elements on the screen. You click something, and something happens. For example, you click the Accounts item in the navigation menu, and you go to the Accounts object home page. You click the New button, and a record entry form appears. You choose a custom action from a quick actions menu, and you launch a custom process. And so on. Those buttons and menu items are navigation elements.
+  - It's the “something happens” part that I wouldn't have considered navigation
