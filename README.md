@@ -31,7 +31,7 @@ Notes from learning about Salesforce
 
 ### Other Pages
 
-- [Apex](/Apex/Apex.md)
+- [Apex](/Apex.md)
 
 ---
 
