@@ -48,9 +48,3 @@ If I was going to start this knowing what I know now, what I would do at a high 
 - Document any nuances with the process
 - Normally in my world your partner would also want to test it out/see it working. Not sure what that interaction normally looks like
 - Install or promote the app to their production org and make any changes needed for issues discovered in the testing done in the bullet points above
-
-
-
-
-
-
