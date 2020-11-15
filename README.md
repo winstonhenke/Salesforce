@@ -32,6 +32,7 @@ Notes from learning about Salesforce
 ### Other Pages
 
 - [Apex](/Apex.md)
+- [Lightning](/Lightning.md)
 
 ---
 
@@ -183,13 +184,14 @@ Salesforce really pumps the use of declarative development using their "metadata
 
 ### Lightning components, Apex, and Visualforce pages
 
+[Full Lightning docs here](/Lightning.md)
+
 #### UI Rendering
 
 - Lightning Component Framework
   - **Client side UI rendering**
   - A UI development framework similar to AngularJS or React for desktop and mobile
-  - The Lightning Component framework is available in Salesforce Classic and Lightning Experience
-    - Lightning Components in Salesforce Classic are exposed using a Visualforce page? Only Aura Components though?
+  - The Lightning Component framework is available in Lightning Experience & Salesforce Classic(using Visualforce pages)
   - You can build Lightning components using two programming models
     - Lightning Web Components model
     - The original Aura Components model
