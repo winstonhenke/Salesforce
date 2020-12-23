@@ -8,6 +8,7 @@ Notes from learning about Salesforce
 
 ### README
 
+- [Org Types](#org-types)
 - [Notes to Self](#notes-to-self)
 - [Definitions](#definitions)
 - [Questions](#questions)
@@ -33,6 +34,15 @@ Notes from learning about Salesforce
 
 - [Apex](/Apex.md)
 - [Lightning](/Lightning.md)
+
+---
+
+## Org Types
+
+- Production Org: The real deal
+- Sandbox Org: A clone of a production Org
+- Developer Edition Org(DE): A free Development Org that when first created is empty
+- Trailhead Playground Org(TP): Basically a DE that has been pre configured for a Trailhead challenge
 
 ---
 
