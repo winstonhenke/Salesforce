@@ -106,8 +106,17 @@ Things to consider when taking on a project
 
 - Salesforce is a platform that you can buy or build apps that run on the platform
 - Salesforce has [prebuilt offerings/products](https://www.salesforce.com/products/) that you can buy from them. Two of the most popular ones are Sales and Service
+  - [Sales Cloud vs Service Cloud](https://ledgeviewpartners.com/blog/salesforce-service-cloud-vs-sales-cloud/)
   - These products are also refereed to as Clouds or modules
-  - Example Sales Cloud and Service Cloud
+  - [Types of Salesforce Clouds](https://medium.com/@cs.venkatesh95/types-of-salesforce-clouds-906a79750579)
+    - **Sales**
+      - Basically a module in salesforce where the entire sales process is handled and revenues are generated
+    - **Service**
+      - Provides services like call-center, live conversations, knowledgebase, assistance with products to customers. The main motive of the service cloud is to keep people happy.
+    - **Marketing**
+    - **Commerce**
+      - Offers e-commerce solutions for B2C (business to consumer) and B2B (business to business) customers. It provides an e-commerce website to customers shopping online
+    - **Community**:
 - When you buy one of these products/modules/Clouds it basically just gives gives you access to a set of features and apps
   - Example, from what I can tell the main thing the Sales Cloud gets you is access to the Sales app from within your org. There is likely more though.
 - Each Cloud is just geared towards solving a different set of problems
