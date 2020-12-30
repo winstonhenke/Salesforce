@@ -17,6 +17,7 @@ Notes from learning about Salesforce
   - [Salesforce Platform](#salesforce-platform)
   - [Salesforce.com | Force.com](#salesforcecom---forcecom)
   - [Salesforce | Lightning Platform | Sales Cloud | Service Cloud | Etc](#salesforce---lightning-platform---sales-cloud---service-cloud---etc)
+  - [Salesforce Apps](#salesforce-apps)
   - [Declarative Development](#declarative-development)
   - [Org](#org)
   - [Objects](#objects)
@@ -124,6 +125,14 @@ Things to consider when taking on a project
   - Theoretically with just the Lightning Platform you could build your own versions of Sales Cloud, Service Cloud, etc. from scratch - but for the most part you'd be better off buying the product license and customizing it from there.
 - Some scenarios don't require purchasing any of the prebuilt Salesforce offerings like Sales Cloud or Service Cloud
   - Example if a company is just trying to automate and integrate some internal process that is very specific to their domain or workflow then a custom app built on the Lightning Platform might be all they need
+
+---
+
+### Salesforce Apps
+
+- <https://stackoverflow.com/a/13993121>
+  - An app in Salesforce is nothing but a container which contains in it - a name, a logo, and an ordered set of tabs.
+  - All the metadata such as Objects, Visualforce Pages, Classes, etc are independent of an app. An app just helps to group things together visually. But internally the metadata has nothing to do with an app i.e. you can have the same tab, VF Page in multiple apps.
 
 ---
 
