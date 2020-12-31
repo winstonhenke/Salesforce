@@ -219,3 +219,53 @@ Documentation from learning about the Apex programming language
 - You can traverse a relationship from a child object (contact) to a field on its parent (Account.Name) by using dot notation
 
 ---
+
+### Apex Triggers
+
+Trailhead Module: <https://trailhead.salesforce.com/content/learn/modules/apex_triggers>
+
+- > Apex triggers enable you to perform custom actions before or after events to records in Salesforce, such as insertions, updates, or deletions. Just like database systems support triggers, Apex provides trigger support for managing records
+- > You can use triggers to do anything you can do in Apex, including executing SOQL and DML or calling custom Apex methods
+- Confusing docs, they say both...
+  - > Use triggers to perform tasks that can’t be done by using the point-and-click tools in the Salesforce user interface. For example, if validating a field value or updating a field on a record, **use validation rules and workflow rules instead**
+  - > Before triggers are used to update or validate record values before they’re saved to the database
+- Use context variables to access the records that caused the trigger to fire
+- Apex calls to external Web services are referred to as callouts. When making a callout from a trigger, the callout must be done asynchronously so that the trigger process doesn’t block you from working while waiting for the external service's response.The asynchronous callout is made in a background process, and the response is received when the external service returns it.
+- Build using bulk trigger design patterns for efficiency and to avoid request limits
+  - Typically, triggers operate on one record if the action that fired the trigger originates from the user interface. But if the origin of the action was bulk DML or the API, the trigger operates on a record set rather than one record. For example, when you import many records via the API, triggers operate on the full record set.
+- A good programming practice is to always assume that the trigger operates on a collection of records so that it works in all circumstances
+- Triggers execute on batches of 200 records at a time. So if 400 records cause a trigger to fire, the trigger fires twice, once for each 200 records.
+
+---
+
+### Apex Unit Tests
+
+- Apex code can only be written in a sandbox environment or a Developer org, not in production.
+- Apex code can be deployed to a production org from a sandbox. Also, app developers can distribute Apex code to customers from their Developer orgs by uploading packages to the Lightning Platform​ AppExchange.
+- In addition to being critical for quality assurance, Apex unit tests are also requirements for deploying and distributing Apex.
+- Salesforce records that are created in test methods aren’t committed to the database. They’re rolled back when the test finishes execution.
+- By default, Apex tests don’t have access to pre-existing data in the org, except for access to setup and metadata objects, such as the User or Profile objects.
+  - Even though it is not a best practice to do so, there are times when a test method needs access to pre-existing data. To access org data, annotate the test method with `@isTest(SeeAllData=true)`
+- Test methods can’t make callouts to external services. You can use mock callouts in tests.
+- `Test.startTest()` and `Test.stopTest()` delimit a block of code that gets a fresh set of governor limits
+  - To test that Apex code runs within governor limits, isolate data setup’s limit usage from your test’s
+  - Also use this test block when testing asynchronous Apex
+  - For more information, see [Using Limits, startTest, and stopTest](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_testing_tools_start_stop_test.htm)
+- Create a test utility class annotated with `isTest` so it can only be accessed from a running test
+
+---
+
+### Asynchronous Apex
+
+- Asynchronous Apex comes in a number of different flavors (It’s also worth noting that these different types of asynchronous operations are not mutually exclusive. For instance, a common pattern is to kick off a Batch Apex job from a Scheduled Apex job.)
+  - Future Methods: Run in their own thread, and do not start until resources are available.
+    - Ex. Web service callout
+  - Batch Apex: Run large jobs that would exceed normal processing limits.
+    - Ex. Data cleansing or archiving of records
+  - Queueable Apex: Similar to future methods, but provide additional job chaining and allow more complex data types to be used.
+    - Ex. Performing sequential processing operations with external Web services
+  - Scheduled Apex: Schedule Apex to run at a specified time
+    - Ex. Daily or weekly tasks
+- If you are making callouts from a trigger or after performing a DML operation, you must use a future or queueable method. A callout in a trigger would hold the database connection open for the lifetime of the callout and that is a "no-no" in a multitenant environment.
+- No guarantee on the order they run or that two won't run concurrently even if they access the same object
+- To test future methods, enclose your test code between the startTest and stopTest test methods.
