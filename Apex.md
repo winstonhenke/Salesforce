@@ -269,3 +269,26 @@ Trailhead Module: <https://trailhead.salesforce.com/content/learn/modules/apex_t
 - If you are making callouts from a trigger or after performing a DML operation, you must use a future or queueable method. A callout in a trigger would hold the database connection open for the lifetime of the callout and that is a "no-no" in a multitenant environment.
 - No guarantee on the order they run or that two won't run concurrently even if they access the same object
 - To test future methods, enclose your test code between the startTest and stopTest test methods.
+
+Queueable Apex
+
+- Because queueable methods are functionally equivalent to future methods, most of the time you’ll probably want to use queueable instead of future methods.
+  - [Not always true](https://trailhead.salesforce.com/en/content/learn/modules/asynchronous_apex/async_apex_queueable)
+- You can’t chain queueable jobs in an Apex **test**, doing so results in an error. To avoid nasty errors, you can check if Apex is running in test context by calling Test.isRunningTest() before chaining jobs.
+
+### Apex Integration Services
+
+- Apex callouts come in two flavors
+  - Web service callouts to SOAP web services use XML, and typically require a WSDL document for code generation
+  - HTTP callouts to services typically use REST with JSON
+- Before you start working with callouts, update the list of approved sites for your org on the Remote Site Settings page
+
+Apex Web Services
+
+- You can expose your Apex class methods as a REST or SOAP web service operation. By making your methods callable through the web, your external applications can integrate with Salesforce
+- Example curl command to get
+
+```bash
+# In the URL should be the same URL you use to log into the UI
+curl -v https://resourceful-otter-7ke6r7-dev-ed.lightning.force.com -d 'grant_type=password' -d 'client_id=<consumer_KEY_from_connected_apps_page>' -d 'client_secret=<consumer_SECRET_from_connected_apps_page>' -d 'username=winstonhenke@resourceful-otter-7ke6r7.com' -d 'password=<password_for_username>' -H 'X-PrettyPrint:1'
+```
