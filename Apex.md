@@ -290,5 +290,5 @@ Apex Web Services
 
 ```bash
 # In the URL should be the same URL you use to log into the UI
-curl -v https://resourceful-otter-7ke6r7-dev-ed.lightning.force.com -d 'grant_type=password' -d 'client_id=<consumer_KEY_from_connected_apps_page>' -d 'client_secret=<consumer_SECRET_from_connected_apps_page>' -d 'username=winstonhenke@resourceful-otter-7ke6r7.com' -d 'password=<password_for_username>' -H 'X-PrettyPrint:1'
+curl -v https://resourceful-otter-7ke6r7-dev-ed.lightning.force.com/services/oauth2/token -d 'grant_type=password' -d 'client_id=<consumer_KEY_from_connected_apps_page>' -d 'client_secret=<consumer_SECRET_from_connected_apps_page>' -d 'username=winstonhenke@resourceful-otter-7ke6r7.com' -d 'password=<password_for_username>' -H 'X-PrettyPrint:1'
 ```
