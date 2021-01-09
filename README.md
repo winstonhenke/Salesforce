@@ -2,6 +2,11 @@
 
 Notes from learning about Salesforce
 
+Questions
+
+- How to best customize an app?
+  - Ex. Say I have an app that uses a LWC that makes a callout and I want to configure the number of retries
+
 ---
 
 ## TOC
