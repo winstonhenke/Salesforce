@@ -301,4 +301,8 @@ Apex Web Services
   curl -v https://login.salesforce.com/services/oauth2/token -d "grant_type=password" -d "client_id=<your_consumer_key>" -d "client_secret=<your_consumer_secret>" -d "username=<your_username>" -d "password=<password_for_username>" -H 'X-PrettyPrint:1'
   ```
 
-- todo
+- Put vs Patch
+  - For details on how Salesforce interprets PUT vs PATCH see `Update Data with a Custom PUT or PATCH Method` [here](https://trailhead.salesforce.com/en/content/learn/modules/apex_integration_services/apex_integration_webservices)
+  - > The PUT method either updates the entire resource, if it exists, or creates the resource if it doesn’t exist. PUT is essentially an upsert method.
+  - > The PATCH method updates only the specified portions of an existing resource. In Apex, update operations update **only the specified fields** and don’t overwrite the entire record.
+- Instead of using custom Apex code for REST and SOAP services, external applications can integrate with Salesforce by using Salesforce’s REST and SOAP APIs. These APIs let you create, update, and delete records. However, the advantage of using Apex web services is that Apex methods can encapsulate complex logic.
