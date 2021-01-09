@@ -286,9 +286,19 @@ Queueable Apex
 Apex Web Services
 
 - You can expose your Apex class methods as a REST or SOAP web service operation. By making your methods callable through the web, your external applications can integrate with Salesforce
-- Example curl command to get
+- Example curl command to get an Oauth token
+  - WARNING
+    - Determining the URL for a Development Org was tricky
+      - If this is your Org URL: <https://resourceful-otter-7ke6r7-dev-ed.lightning.force.com/lightning/page/home>
+      - Go to: <https://resourceful-otter-7ke6r7-dev-ed.lightning.force.com/.well-known/openid-configuration>
+      - And see the value for `token_endpoint`
+    - Also in `Manage Connected Apps` I had to set `IP Relaxation -> Relax IP restrictions`
+  - `<your_consumer_key>` & `<your_consumer_secret>` can only be viewed immediately after creating the Connected App
+  - `<your_username>` example: `winstonhenke@resourceful-otter-7ke6r7.com`
 
-```bash
-# In the URL should be the same URL you use to log into the UI
-curl -v https://resourceful-otter-7ke6r7-dev-ed.lightning.force.com/services/oauth2/token -d 'grant_type=password' -d 'client_id=<consumer_KEY_from_connected_apps_page>' -d 'client_secret=<consumer_SECRET_from_connected_apps_page>' -d 'username=winstonhenke@resourceful-otter-7ke6r7.com' -d 'password=<password_for_username>' -H 'X-PrettyPrint:1'
-```
+  ```bash
+  # Format
+  curl -v https://login.salesforce.com/services/oauth2/token -d "grant_type=password" -d "client_id=<your_consumer_key>" -d "client_secret=<your_consumer_secret>" -d "username=<your_username>" -d "password=<password_for_username>" -H 'X-PrettyPrint:1'
+  ```
+
+- todo
