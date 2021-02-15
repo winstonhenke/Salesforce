@@ -21,6 +21,15 @@ Documentation from learning about the Apex programming language
   - Versioned: Custom Apex code can be saved against different versions of the API
   - Case-insensitive language
 
+Setting up the debugger
+
+- Interactive debugging looks to be a paid feature
+  - Need to setup a [Developer Hub (Dev Hub)](https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/dev_hub_intro.htm)
+  - >Trial and Developer Edition orgs do not include any Apex Debugger sessions
+    - <https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop_apex_debugger.htm>
+- Replay debugging is free
+  - <https://developer.salesforce.com/tools/vscode/en/apex/replay-debugger>
+
 ---
 
 ## Random Notes
