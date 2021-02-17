@@ -80,6 +80,7 @@ Lightning Components: Client side UI rendering
     - `v` gives you a hook to access the component’s message attribute, and it’s how you access all of a component’s attributes.
     - `v.` = View, `a.` = Action, `c.` = Controller
     - More on these Value Providers
+      - [Value Providers - Salesforce Dev Docs](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/expr_source.htm)
       - [What are "v" and "c" in the Expenses example in the Lightning Component Developers Guide?](https://developer.salesforce.com/forums/?id=906F0000000AoVeIAK)
       - [Deeper understanding of Lightning Components and/or JavaScript](https://developer.salesforce.com/forums?id=906F0000000AndMIAS)
 
