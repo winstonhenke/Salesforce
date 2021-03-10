@@ -46,6 +46,7 @@ Notes
 - [Apex](/Apex.md)
 - [Lightning](/Lightning.md)
 - [SOQL](/SOQL.md)
+- [Packaging and Distributing Apps](/Packaging.md)
 
 ---
 
