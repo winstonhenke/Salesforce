@@ -92,5 +92,8 @@ To develop a unmanaged package the workflow would be...
     - A separate Dev Org needs to be created as the Packaging Org (this is where the namespace is created and registered)
     - So should this Packaging Org be a persisted Org? I.e not a disposable one that can be deleted after making a new version.
     - Is it common to use a single Packaging Org for multiple packages? Or is one-to-one more common?
+    - My Packaging Org I'm using for testing says
+      - > Your organization is configured to contain **one managed package** and an unlimited number of unmanaged packages. Only managed packages can be upgraded.
+      - Is this because I'm using a free version? Do paid version allow more than one?
 
 ---
