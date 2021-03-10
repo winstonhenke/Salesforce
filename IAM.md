@@ -12,3 +12,13 @@ All the fun stuff
   - Although it’s easy to confuse `permission sets` and `profiles` with `roles`, they control two different things.
   - `Permission sets` and `profiles` control a user’s **object and field access permissions**.
   - `Roles` primarily control a user’s **record-level access** through role hierarchy and sharing rules.
+
+Access can be controlled through a variety of ways
+
+- Profiles
+- Roles
+- Permission Sets
+- Organization Wide Defaults (OWD)
+  - Internal and external (for Experience portal users)
+- Page Layouts
+- Groups
