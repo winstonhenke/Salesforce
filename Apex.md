@@ -315,3 +315,26 @@ Apex Web Services
   - > The PUT method either updates the entire resource, if it exists, or creates the resource if it doesn’t exist. PUT is essentially an upsert method.
   - > The PATCH method updates only the specified portions of an existing resource. In Apex, update operations update **only the specified fields** and don’t overwrite the entire record.
 - Instead of using custom Apex code for REST and SOAP services, external applications can integrate with Salesforce by using Salesforce’s REST and SOAP APIs. These APIs let you create, update, and delete records. However, the advantage of using Apex web services is that Apex methods can encapsulate complex logic.
+
+Example Code
+
+```bash
+# Base URL
+https://resourceful-otter-7ke6r7-dev-ed.my.salesforce.com
+
+# Authorization Request
+curl https://resourceful-otter-7ke6r7-dev-ed.my.salesforce.com/services/oauth2/token -d 'grant_type=password' -d 'client_id=<your_consumer_key>' -d 'client_secret=<your_consumer_secret>' -d 'username=<your_username>' -d 'password=<password_for_username>' -H 'X-PrettyPrint:1'
+
+# Response
+{
+  "access_token" : "SOME TOKEN HERE",
+  "instance_url" : "https://resourceful-otter-7ke6r7-dev-ed.my.salesforce.com",
+  "id" : "https://login.salesforce.com/id/00D5w000006ez0gEAA/0055w00000DLUc9AAH",
+  "token_type" : "Bearer",
+  "issued_at" : "1610221367330",
+  "signature" : "SOME SIGNATURE HERE"
+}
+
+# Example usage
+curl https://resourceful-otter-7ke6r7-dev-ed.my.salesforce.com/services/apexrest/Cases/5005w00001aL1swAAC -H 'Authorization: Bearer <value from access_token>' -H "X-PrettyPrint:1"
+```
