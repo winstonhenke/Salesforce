@@ -75,11 +75,13 @@ Lightning Components: Client side UI rendering
     - `{!'Hello! ' + v.message}`
     - `{!$Label.c.Greeting + v.message}`
     - `{!v.account.Id}`
+    - `{#v.attrib}`
   - What’s the `v.` part?
     - `v` is something called a value provider. Value providers are a way to group, encapsulate, and access related data. Value providers are a complicated topic, so for now, think of `v` as an automatic variable that’s made available for you to use.
     - `v` gives you a hook to access the component’s message attribute, and it’s how you access all of a component’s attributes.
     - `v.` = View, `a.` = Action, `c.` = Controller
     - More on these Value Providers
+      - [When to use {#v.attrib} vs {!v.attrib}?](https://salesforce.stackexchange.com/questions/138348/when-to-use-v-attrib-vs-v-attrib)
       - [Value Providers - Salesforce Dev Docs](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/expr_source.htm)
       - [What are "v" and "c" in the Expenses example in the Lightning Component Developers Guide?](https://developer.salesforce.com/forums/?id=906F0000000AoVeIAK)
       - [Deeper understanding of Lightning Components and/or JavaScript](https://developer.salesforce.com/forums?id=906F0000000AndMIAS)
