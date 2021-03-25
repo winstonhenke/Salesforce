@@ -48,6 +48,7 @@ Notes
 - [Misc](/Misc.md)
 - [SOQL](/SOQL.md)
 - [Packaging and Distributing Apps](/Packaging.md)
+- [SFDX](/SFDX.md)
 
 ---
 
