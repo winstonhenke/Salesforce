@@ -278,6 +278,8 @@ Trailhead Module: <https://trailhead.salesforce.com/content/learn/modules/apex_t
 - If you are making callouts from a trigger or after performing a DML operation, you must use a future or queueable method. A callout in a trigger would hold the database connection open for the lifetime of the callout and that is a "no-no" in a multitenant environment.
 - No guarantee on the order they run or that two won't run concurrently even if they access the same object
 - To test future methods, enclose your test code between the startTest and stopTest test methods.
+- [Chaining Asynchronous Callouts](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_continuation_chained_callouts.htm)
+  - [Make Long-Running Callouts with Continuations](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/apex_continuations.htm)
 
 Queueable Apex
 
