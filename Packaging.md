@@ -1,21 +1,42 @@
 # Packaging and Distributing Apps
 
-Docs about packing and distributing of managed and unmanaged packages
+Docs about packing and distributing of managed and unmanaged packages.
+
+- <https://help.salesforce.com/articleView?id=sf.package_distribute_apps_overview.htm>
 
 ---
 
 ## General
 
-- <https://help.salesforce.com/articleView?id=sf.package_distribute_apps_overview.htm>
-- Org types involved
-  - Developer Hub Org (Dev Hub)
-    - Lets you create and manage Scratch Orgs
-    - [Your Dev Hub org is often your production org](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_editions_and_allocations.htm) (See notes below about linking namespaces to a Dev Hub)
-  - Packaging Org
-    - A Developer Edition org configured with a managed package namespace.
-  - Environment Hub Org
-  - Scratch Org
-    - [Can only be created from a Dev Hub](https://help.salesforce.com/articleView?id=sf.sfdx_setup_enable_devhub.htm)
+Types of Orgs
+
+- [Partner Business Org](https://partners.salesforce.com/s/education/general/Partner_Business_Org)
+  - The Partner Business Org is the org you use to run your business, essentially the org where your CRM exists. Salesforce provides 2 free Enterprise Edition licenses to all contracted partners. For ISV Partners, core technologies (License Management App, Channel Order App) are utilized from this org.
+  - This is needed if you are charging for your app on AppExchange. I believe you can still list free apps without this.
+- [Environment Hub Org](https://help.salesforce.com/articleView?id=sf.environment_hub_intro.htm&type=5)
+  - This is my Environment Hub Org: <https://phy69.my.salesforce.com>
+    - **Note**: This is a Enterprise Edition Org. NOT a Dev Org.
+  - Basically just an org that has enabled the Environment Hub. Mine was enabled by default since I created it when signing up for the Salesforce Partner Community. Alternatively you can submist a ticket to Salesforce to have this enabled on an existing org.
+  - It lets you connect, create, view, and log in to Salesforce orgs from one location.
+  - If your company has multiple environments for development, testing, and trials, the Environment Hub lets you streamline your approach to org management.
+  - It is the only way that ISV partners can spin up a `Partner Developer Org`, which is used to build managed packages.
+  - AppExchange Partners should never enable Environment Hub in the DE org that contains a managed package.
+  - Once enabled, Environment Hub cannot be turned off.
+  - As a best practice, one organization should be designated as the Environment Hub (or hub organization), which can then connect all your other organizations, or member organizations, to the hub.
+  - You can establish single sign-on between the hub and member organizations, enabling users to seamlessly switch between them without having to provide login credentials.
+  - From a Env Org you can create other types of Dev Orgs but...
+    - [I'd strongly discourage package development in anything other than Partner Developer Edition orgs. (At least for packages intended for public consumption)](https://salesforce.stackexchange.com/a/53843/77466)
+- Partner Developer Org
+  - A developer org created from the Environment Hub
+  - Very similar to a regular dev org but it's super sized allowing for a higher API call limit, more storage, and a greater number of licenses available for your team.
+- Developer Hub Org (Dev Hub)
+  - Lets you create and manage Scratch Orgs
+  - See notes below about linking namespaces to a Dev Hub
+  - TODO - Would I enable this on a Partner Developer Org?
+- Packaging Org
+  - A Developer Edition org configured with a managed package namespace.
+- Scratch Org
+  - [Can only be created from a Dev Hub](https://help.salesforce.com/articleView?id=sf.sfdx_setup_enable_devhub.htm)
 
 [Understanding Packages](https://help.salesforce.com/articleView?id=sf.sharing_apps.htm)
 
