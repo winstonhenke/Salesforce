@@ -3,6 +3,7 @@
 Docs about packing and distributing of managed and unmanaged packages.
 
 - <https://help.salesforce.com/articleView?id=sf.package_distribute_apps_overview.htm>
+- <https://resources.docs.salesforce.com/230/latest/en-us/sfdc/pdf/salesforce_packaging_guide.pdf>
 
 ---
 
