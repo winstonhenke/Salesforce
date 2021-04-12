@@ -57,8 +57,8 @@ Lightning Components: Client side UI rendering
 - An app is a special kind of component
   - When writing markup, you can add a component to an app, but you can’t add an app to another app, or an app to a component
   - An app has a standalone URL that you can access while testing, and which you can publish to your users
-  - You can’t add apps to Lightning Experience or the Salesforce app—you can only add components. After the last unit this might sound weird; what exactly do you add to the App Launcher, if not an app? What you add to App Launcher is a Salesforce app, which wraps up an Aura component, something defined in a `<aura:component>`. An Aura components app—that is, something defined in a `<aura:application>` —can’t be used to create Salesforce apps. A bit weird, but there it is.
-  - You publish functionality built with Lightning Components in containers. Lightning Components apps are one kind of container for our Lightning components.
+  - You can’t add apps to Lightning Experience or the Salesforce app, you can only add components. After the last unit this might sound weird; what exactly do you add to the App Launcher, if not an app? What you add to App Launcher is a Salesforce app, which wraps up an Aura component, something defined in a `<aura:component>`. An Aura components app, that is, something defined in a `<aura:application>`, can’t be used to create Salesforce apps. A bit weird, but there it is.
+  - You publish functionality built with Lightning Components in containers. Lightning Component apps are one kind of container for our Lightning components.
   - This usually means that you build all of your “app” functionality inside a top-level component. Then at the end, you stick that one component in a container—maybe a Lightning Components app, maybe the Salesforce app, maybe something else.
 - Despite the technical differences between a component and an app, when they talk about "creating apps" they really mean building functionality inside a component bundle, not an application bundle, because that’s how you build “apps” in the real world.
 - Aura components can accept input in the form of attributes when they are created
@@ -77,14 +77,29 @@ Lightning Components: Client side UI rendering
     - `{!v.account.Id}`
     - `{#v.attrib}`
   - What’s the `v.` part?
-    - `v` is something called a value provider. Value providers are a way to group, encapsulate, and access related data. Value providers are a complicated topic, so for now, think of `v` as an automatic variable that’s made available for you to use.
-    - `v` gives you a hook to access the component’s message attribute, and it’s how you access all of a component’s attributes.
-    - `v.` = View, `a.` = Action, `c.` = Controller
+    - `v` is something called a value provider.
+      - Value providers are a way to group, encapsulate, and access related data.
+      - Value providers are a complicated topic, so for now, think of `v` as an automatic variable that’s made available for you to use.
+      - `v.` gives you a hook to access the component’s message attribute, and it’s how you access all of a component’s attributes.
+    - Types of Value Providers
+      - `v.` - View: how you access all of a component’s attributes.
+      - `a.` - Action
+      - `c.` - Controller: component’s client-side controller
     - More on these Value Providers
       - [When to use {#v.attrib} vs {!v.attrib}?](https://salesforce.stackexchange.com/questions/138348/when-to-use-v-attrib-vs-v-attrib)
       - [Value Providers - Salesforce Dev Docs](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/expr_source.htm)
       - [What are "v" and "c" in the Expenses example in the Lightning Component Developers Guide?](https://developer.salesforce.com/forums/?id=906F0000000AoVeIAK)
       - [Deeper understanding of Lightning Components and/or JavaScript](https://developer.salesforce.com/forums?id=906F0000000AndMIAS)
+- Attributes on components are like instance variables in objects
+- Attribute Data Types
+  - Primitives
+  - Standard and custom Salesforce objects
+  - Collections, such as List, Map, and Set
+  - Custom Apex classes
+  - Framework-specific types, such as Aura.Component, or Aura.Component[]
+- Lightning Components and MVC
+  - There are similarities, to be sure, but it would be more correct to say that Lightning Components is View-Controller-Controller-Model, or perhaps View-Controller-Controller-Database.
+  - Why is “controller” doubled up in that pattern name? Because when interacting with Salesforce, your components will have a server-side controller in addition to the client-side controller we’ve worked with in this unit. This dual controller design is the key difference between Lightning Components and MVC.
 
 Example Application
 
