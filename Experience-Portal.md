@@ -7,14 +7,15 @@ Trailhead: <https://trailhead.salesforce.com/en/content/learn/projects/communiti
 
 ---
 
-TODO - What are these called in the portal? Some components require these "tokens"?
+## Expressions - Typically used for record ID
 
+- [Expressions Available for Displaying Current User Information](https://help.salesforce.com/articleView?id=sf.siteforce_communities_data_code_reference.htm&type=5)
 - `{!CurrentUser.accountId}`
 - `{!recordId}`
 
 ---
 
-Welcome Emails & Login Issues
+## Welcome Emails & Login Issues
 
 - Welcome emails will not be sent until the site is activated. By default after creation it is not active.
   - If you already created a user the welcome email will be sent once the site is activated.
@@ -26,10 +27,22 @@ Welcome Emails & Login Issues
 
 ---
 
-Hot Spots
+## Hot Spots
 
 - `Setup -> Security -> Sharing Settings`
 - `Setup -> Portal Health Check`
 - `Setup -> Feature Settings -> Digital Experiences -> Settings -> Sharing Sets`
+
+---
+
+## Branding
+
+When setting the max page width for a site the navigation bar kept a large margin. To fix it I had to use edit the CSS on the theme with the following.
+
+```css
+.forceCommunityGlobalNavigation community_navigation-global-navigation-list {
+  margin-left: 0;
+}
+```
 
 ---
