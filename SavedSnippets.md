@@ -12,8 +12,6 @@ Select ID and Name for all accounts
 SELECT ID, Name FROM Account
 ```
 
----
-
 Select account name and contact info for linked contacts **where account name** is `ExampleAccount`
 
 ```sql
@@ -21,8 +19,6 @@ SELECT Name, (SELECT FirstName, LastName FROM Contacts)
 FROM Account
 WHERE Name = 'ExampleAccount'
 ```
-
----
 
 Select accounts that have a linked contact with the name `Winston Henke`
 
@@ -33,6 +29,15 @@ From Account
 Where Id IN (
   SELECT AccountId FROM Contact WHERE Name = 'Winston Henke'
   )
+```
+
+Select available Record Types for a given sObject
+
+```sql
+SELECT FIELDS(ALL)
+FROM RecordType
+WHERE sObjectType='Account'
+LIMIT 200
 ```
 
 ---
