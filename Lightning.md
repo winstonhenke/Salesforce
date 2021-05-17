@@ -31,6 +31,7 @@ Lightning Components: Client side UI rendering
   - Run Lightning components apps inside Visualforce pages
   - Customize flow screens
 - Consider using a container app for developing/testing Lightning components
+- Apex and Salesforce in general are **case-insensitive**, but JavaScript is case-sensitive. That is, `Name` and `name` are the same in Apex, but different in JavaScript.
 - [Lightning Web Components reference](https://developer.salesforce.com/docs/component-library/overview/components)
 
 ---
@@ -84,7 +85,9 @@ Lightning Components: Client side UI rendering
     - Types of Value Providers
       - `v.` - View: how you access all of a component’s attributes.
       - `a.` - Action
-      - `c.` - Controller: component’s client-side controller
+      - `c.` - Controller: component’s client/server-side controller
+        - Context matters here. `c.` from the **component** markup references the client-side controller. `c.` from the controller code references the server-side controller.
+        - And then `c:` (notice colon not dot) in the markup is the default namespace
     - More on these Value Providers
       - [When to use {#v.attrib} vs {!v.attrib}?](https://salesforce.stackexchange.com/questions/138348/when-to-use-v-attrib-vs-v-attrib)
       - [Value Providers - Salesforce Dev Docs](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/expr_source.htm)
@@ -100,6 +103,17 @@ Lightning Components: Client side UI rendering
 - Lightning Components and MVC
   - There are similarities, to be sure, but it would be more correct to say that Lightning Components is View-Controller-Controller-Model, or perhaps View-Controller-Controller-Database.
   - Why is “controller” doubled up in that pattern name? Because when interacting with Salesforce, your components will have a server-side controller in addition to the client-side controller we’ve worked with in this unit. This dual controller design is the key difference between Lightning Components and MVC.
+- **TODO**
+  - `event.getSource()` vs `component.find()` in a component's controller
+- **TODO**
+  - Where can Aura apps/components be used. Standalone URL apps, app launcher, Lightning App Builder?
+  - Where can LWCs be used?
+- `$A`
+  - A framework global variable that provides a number of important functions and services. Example: `$A.enqueueAction(action)`, adds the server call to the Aura component framework request queue.
+- Action callback format
+  - `action.setCallback(scope, callbackFunction);`
+  - `action.setCallback(this, function(response) { ... });`
+  - Callback functions take a single parameter, response, which is an opaque object that provides the returned data, if any, and various details about the status of the request.
 
 Example Application
 
@@ -108,13 +122,12 @@ Example Application
   - This is our "container" or "harness" app
 
 ```xml
-<aura:application >
+<!-- extends="force:slds" gives you all the Lightning Design System styles and design tokens-->
+<aura:application extends="force:slds">
   <!--The harnessApp contains the helloWorld component-->
   <c:helloWorld/>
 </aura:application>
 ```
-
-Example Component
 
 - `helloWorld.cmp`: Component definition resource
 
