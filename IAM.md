@@ -17,8 +17,30 @@ Access can be controlled through a variety of ways
 
 - Profiles
 - Roles
+- View All | Modify All permission (typically on the System Administrator Role)
 - Permission Sets
 - Organization Wide Defaults (OWD)
   - Internal and external (for Experience portal users)
+- Field level security
 - Page Layouts
 - Groups
+- [Queues](https://help.salesforce.com/articleView?id=sf.setting_up_queues.htm&type=5)
+- Portals also have some different options?
+
+---
+
+## Temp - Needs Cleanup
+
+Checking if a user has access to a record
+
+```sql
+SELECT RecordId, HasAllAccess, HasDeleteAccess, HasReadAccess, HasEditAccess, HasTransferAccess, MaxAccessLevel
+FROM UserRecordAccess
+WHERE UserId = '0051H00000C0v8lQAB'
+AND RecordId = 'a0G1H00000tAO4wUAG'
+```
+
+See record sharing details and reasons why
+
+- <https://SomeCompany.my.salesforce.com/p/share/CustomObjectSharingDetail?parentId=RecordIdHere>
+- <https://SomeCompany.my.salesforce.com/p/share/AccSharingDetail?parentId=RecordIdHere>
