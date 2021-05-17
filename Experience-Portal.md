@@ -32,10 +32,12 @@ Trailhead: <https://trailhead.salesforce.com/en/content/learn/projects/communiti
 - `Setup -> Security -> Sharing Settings`
 - `Setup -> Portal Health Check`
 - `Setup -> Feature Settings -> Digital Experiences -> Settings -> Sharing Sets`
+- `Setup -> Feature Settings -> Digital Experiences -> All Sites -> Workspaces -> Administration -> Login & Registration`
+  - Login Page Setup: I had a new site default to `Experience Builder Page` which is not controlled by the branding options above it. Set this to `Default Page` for these to take affect.
 
 ---
 
-## Branding
+## Branding - Always Inspect the DOM for Exact CSS Selectors
 
 When setting the max page width for a site the navigation bar kept a large margin. To fix it I had to use edit the CSS on the theme with the following.
 
@@ -43,6 +45,42 @@ When setting the max page width for a site the navigation bar kept a large margi
 .forceCommunityGlobalNavigation community_navigation-global-navigation-list {
   margin-left: 0;
 }
+```
+
+Example CSS overrides done for a Customer Portal
+
+```css
+/* Navigation Bar */
+.forceCommunityGlobalNavigation community_navigation-global-navigation-list {
+  margin-left: 0;
+}
+
+/* Header Background - White */
+.siteforceServiceBody .cHeaderOverlay {
+  background: rgb(255, 255, 255) !important;
+}
+
+/* Search Box Border- Pinnacle Grey */
+.siteforceServiceBody .cSearchPublisher .forceCommunityGlobalSearchInput .forceSearchInputDesktop .contentWrapper {
+  border-color: rgb(100, 101, 103) !important;
+}
+
+/* Search Box Text- Pinnacle Grey */
+.siteforceServiceBody .cSearchPublisher .forceCommunityGlobalSearchInput .forceSearchInputDesktop input, .siteforceServiceBody .cSearchPublisher .forceCommunityGlobalSearchInput .forceSearchInputDesktop input::placeholder, .siteforceServiceBody .cSearchPublisher .forceCommunityGlobalSearchInput .forceSearchInputDesktop .contentWrapper .slds-input__icon {
+  color: rgb(100, 101, 103) !important;
+}
+
+/* User Profile Menu - Pinnacle Grey */
+.siteforceServiceBody .cProfileCon a.trigger-link {
+  color: rgb(100, 101, 103) !important;
+  text-shadow: none !important;
+}
+
+/* Page Header - No Max Width */
+.siteforceServiceBody .cHeaderLine {
+  max-width: none !important;
+}
+
 ```
 
 ---
