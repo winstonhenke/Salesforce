@@ -2,6 +2,10 @@
 
 All the fun stuff
 
+Resources
+
+- [Salesforce Help: Connected App and OAuth Terminology](https://help.salesforce.com/articleView?id=sf.remoteaccess_terminology.htm&type=5)
+
 ---
 
 ## General
