@@ -296,6 +296,7 @@ Queueable Apex
 
 Apex Web Services
 
+- Also see [REST API](/REST-API.md)
 - You can expose your Apex class methods as a REST or SOAP web service operation. By making your methods callable through the web, your external applications can integrate with Salesforce
 - Example curl command to get an Oauth token
   - WARNING
