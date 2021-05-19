@@ -2,8 +2,18 @@
 
 Experience Cloud Notes
 
-Customer Portal: <http://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/customer_portal_guide.pdf> 
-Trailhead: <https://trailhead.salesforce.com/en/content/learn/projects/communities_share_crm_data>
+Resources
+
+- [Customer Portal](http://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/customer_portal_guide.pdf)
+- [Trailhead](https://trailhead.salesforce.com/en/content/learn/projects/communities_share_crm_data)
+- [Considerations for Deploying Experience Cloud Sites with Change Sets](https://developer.salesforce.com/docs/atlas.en-us.communities_dev.meta/communities_dev/networks_migrate_considerations.htm#unsupported)
+
+---
+
+## General
+
+- A Salesforce user must belong to a Role before they can enable a Contact as a portal user.
+- Salesforce recommends cloneing the default profiles that are created after enabling Experience Cloud
 
 ---
 
