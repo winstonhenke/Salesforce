@@ -1,5 +1,16 @@
 # Lightning Components
 
+Lightning Web Components and Aura
+
+- [Lightning Components](#lightning-components)
+  - [General](#general)
+  - [Aura Components](#aura-components)
+  - [Lightning Web Components](#lightning-web-components)
+
+---
+
+## General
+
 Lightning Components: Client side UI rendering
 
 - Primarily used in Lightning Experience but can also be used in Salesforce Classic [using Visualforce pages](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_visualforce.htm)
@@ -33,13 +44,6 @@ Lightning Components: Client side UI rendering
 - Consider using a container app for developing/testing Lightning components
 - Apex and Salesforce in general are **case-insensitive**, but JavaScript is case-sensitive. That is, `Name` and `name` are the same in Apex, but different in JavaScript.
 - [Lightning Web Components reference](https://developer.salesforce.com/docs/component-library/overview/components)
-
----
-
-## TOC
-
-- [Aura Components](#aura-components)
-- [Lightning Web Components](#lightning-web-components)
 
 ---
 
@@ -110,6 +114,7 @@ Lightning Components: Client side UI rendering
   - Where can LWCs be used?
 - `$A`
   - A framework global variable that provides a number of important functions and services. Example: `$A.enqueueAction(action)`, adds the server call to the Aura component framework request queue.
+  - [$A namespace](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_jsapi_dollarA.htm)
 - Action callback format
   - `action.setCallback(scope, callbackFunction);`
   - `action.setCallback(this, function(response) { ... });`
