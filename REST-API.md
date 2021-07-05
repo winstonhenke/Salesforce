@@ -4,7 +4,11 @@ Documentation on using Salesforces REST API
 
 Resources
 
+- [Python Script Usage: Github winstonhenke/Python](https://github.com/winstonhenke/Python/blob/main/Salesforce/Salesforce.py)
 - [REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm)
+  - [Set Up Authorization](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm)
+    - > You can set up authorization using OAuth 2.0 or by passing a session ID.
+    - I've been using OAuth 2.0 primarily
 - [Authorize Apps with OAuth](https://help.salesforce.com/articleView?id=sf.remoteaccess_authenticate.htm&type=5)
 - [Authentication using JWT](https://salesforce.stackexchange.com/questions/201636/authentication-using-jwt/201648)
 
@@ -23,11 +27,11 @@ I'm unsure how much of the Connacted Apps configuration depends on the type of O
       - Obviously don't always use this
     - Save the `Consumer Key` & `Consumer Secret`
 - `Setup -> Apps -> Connected Apps -> Manage Connected Apps`
-  - Edit the Connected App just created
+  - **Edit** the Connected App just created
   - Permitted Users: `Admin approved users are pre-authorized`
   - IP Relaxation: `Relax IP restrictions`
 - `Setup -> Apps -> Connected Apps -> Manage Connected Apps`
-  - Open the Connected App
+  - **Open** the Connected App
   - Under the Profiles section add a profile (I'm using System Admin for this example)
 
 ## Using the Connected App
