@@ -5,6 +5,9 @@ Lightning Web Components and Aura
 - [Lightning Components](#lightning-components)
   - [General](#general)
   - [Aura Components](#aura-components)
+    - [Design Considerations](#design-considerations)
+      - [Delegate or not to delagate?](#delegate-or-not-to-delagate)
+    - [Example Application](#example-application)
   - [Lightning Web Components](#lightning-web-components)
 
 ---
@@ -120,7 +123,67 @@ Lightning Components: Client side UI rendering
   - `action.setCallback(this, function(response) { ... });`
   - Callback functions take a single parameter, response, which is an opaque object that provides the returned data, if any, and various details about the status of the request.
 
-Example Application
+---
+
+### Design Considerations
+
+#### Delegate or not to delagate?
+
+Say you have a Aura app with this structure
+
+```text
+- Expenses.cmp
+  - ExpenseList.cmp
+    - ExpenseItem.cmp
+```
+
+```html
+<!-- Expenses.cmp -->
+<aura:component controller="ExpensesController">
+  <!-- Component's Input -->
+  <aura:attribute name="expenses" type="Expense__c[]" />
+  <!-- ... -->
+  <!-- Expense List component-->
+  <c:expensesList expenses="{!v.expenses}" />
+</aura:component>
+```
+
+```html
+<!-- ExpenseList.cmp -->
+<aura:component>
+  <!-- Component's Input -->
+  <aura:attribute name="expenses" type="Expense__c[]" />
+  <aura:iteration items="{!v.expenses}" var="expense">
+    <!-- Use the expenseItem component -->
+    <c:expenseItem expense="{!expense}" />
+  </aura:iteration>
+</aura:component>
+```
+
+```html
+<!-- ExpenseItem.cmp -->
+<aura:component>
+  <aura:attribute name="expense" type="Expense__c" />
+  <!-- ... -->
+  <lightning:input
+    type="toggle"
+    label="Reimbursed?"
+    name="reimbursed"
+    class="slds-p-around_small"
+    checked="{!v.expense.Reimbursed__c}"
+    messageToggleActive="Yes"
+    messageToggleInactive="No"
+    onchange="???"
+  />
+</aura:component>
+
+```
+
+And notice the `onchange="???"` in ExpenseItem.cmp, should `ExpenseItem.cmp` handle calling a server side function? Or should it send an event to it's grandparent `Expenses.cmp`? There are trade-offs either way but by having all child components delegate responsibility for handling server requests and for managing the expenses array attribute, we’re breaking encapsulation a bit.
+
+---
+
+### Example Application
 
 - `harnessApp.app`: App definition resource
   - No matter how much functionality we decide we’re going to add to our helloWorld “app”, it’s all going to go inside the helloWorld component
