@@ -13,7 +13,9 @@ Resources
 ## General
 
 - A Salesforce user must belong to a Role before they can enable a Contact as a portal user.
-- Salesforce recommends cloneing the default profiles that are created after enabling Experience Cloud
+- Salesforce recommends cloneing the default profiles that are created after enabling Experience Cloud.
+- Portal Users can not view Reports that live in the Public folder. Had to create a new folder with the appropriate sharing setup.
+- For notifications to work I had to [open a support ticket with Salesforce](https://help.salesforce.com/articleView?id=000314990&type=1&mode=1) to enable them.
 
 ---
 
@@ -23,10 +25,29 @@ Resources
 - `{!CurrentUser.accountId}`
 - `{!recordId}`
 
+Should work but doesn't
+
+```text
+-- When using the Related Record List, assuming a 'Asset Tactics' is a related list on Accounts
+-- and the component is being added to a Case detail page which has a master/detail with Accounts
+-- This would work (hard coding the Parent Record ID)
+Parent Record ID: 0015e000006h1sHAAQ
+Related List Name: Asset_Tactics__r
+
+-- But no way to dynamically get the Case's partent(an Account) ID
+{!recordId.Account.Id}
+{!recordId.Account}
+{!recordId.AccountID}
+
+```
+
+Limitation: [Pass a value other than {!recordId} to a Lightning Component in a Community](https://trailblazer.salesforce.com/ideaView?id=0873A0000003bCSQAY)
+
 ---
 
 ## Welcome Emails & Login Issues
 
+- If modifying the login page set `Login Page Type` to `Default Page` in Workspaces -> Login & Registration
 - Welcome emails will not be sent until the site is activated. By default after creation it is not active.
   - If you already created a user the welcome email will be sent once the site is activated.
 - If you try logging in after activating a new site but are redirected right back to the login screen…
@@ -47,7 +68,19 @@ Resources
 
 ---
 
-## Branding - Always Inspect the DOM for Exact CSS Selectors
+## Permissions
+
+- If you have a custom object that is on the detail side of a master/detail with a standard object like Account, and you want the portal user to have the ability to create child records...
+  - Allow Read access to the parent object.
+  - Update minimum access level required on the Master-Detail Options in the child object. Set to Read Only.
+
+---
+
+## Branding
+
+- A background image will not show on the login page until your enable: `Let guest users view asset files and CMS content available to the site` from Workspaces -> Preferences
+
+### Always Inspect the DOM for Exact CSS Selectors
 
 When setting the max page width for a site the navigation bar kept a large margin. To fix it I had to use edit the CSS on the theme with the following.
 
