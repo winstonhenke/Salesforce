@@ -1,53 +1,50 @@
 # Salesforce
 
-Notes from learning about Salesforce
-
-Questions
-
-- How to best customize an app?
-  - Ex. Say I have an app that uses a LWC that makes a callout and I want to configure the number of retries
-
-Notes
-
-- When searching in the Object Manager you need to search by the label and **NOT** the API name
-  - Example, `Opportunity Product` will yield results but `OpportunityLineItem` will not
+- [Salesforce](#salesforce)
+  - [General](#general)
+  - [Other Pages](#other-pages)
+  - [Org Types](#org-types)
+  - [Notes to Self](#notes-to-self)
+  - [Definitions](#definitions)
+  - [Questions](#questions)
+  - [Initial Requirements Gathering](#initial-requirements-gathering)
+  - [Concepts](#concepts)
+    - [Salesforce Platform](#salesforce-platform)
+    - [Salesforce.com | Force.com](#salesforcecom--forcecom)
+    - [Salesforce | Lightning Platform | Sales Cloud | Service Cloud | Etc](#salesforce--lightning-platform--sales-cloud--service-cloud--etc)
+    - [Salesforce Apps](#salesforce-apps)
+    - [Declarative Development](#declarative-development)
+    - [Org](#org)
+    - [Objects](#objects)
+    - [Object Relationships](#object-relationships)
+    - [Metadata](#metadata)
+    - [Salesforce Classic vs Lightning Experience](#salesforce-classic-vs-lightning-experience)
+    - [Lightning components, Apex, and Visualforce pages](#lightning-components-apex-and-visualforce-pages)
+      - [UI Rendering](#ui-rendering)
+      - [Server Side Business Logic](#server-side-business-logic)
+    - [Salesforce APIs](#salesforce-apis)
+    - [Heroku](#heroku)
+    - [Permissions](#permissions)
+      - [Record Level Permissions](#record-level-permissions)
+    - [Formulas & Validation](#formulas--validation)
+    - [Navigation](#navigation)
 
 ---
 
-## TOC
+## General
 
-### README
+Notes from learning about Salesforce
 
-- [Org Types](#org-types)
-- [Notes to Self](#notes-to-self)
-- [Definitions](#definitions)
-- [Questions](#questions)
-- [Initial Requirements Gathering](#initial-requirements-gathering)
-- [Concepts](#concepts)
-  - [Salesforce Platform](#salesforce-platform)
-  - [Salesforce.com | Force.com](#salesforcecom---forcecom)
-  - [Salesforce | Lightning Platform | Sales Cloud | Service Cloud | Etc](#salesforce---lightning-platform---sales-cloud---service-cloud---etc)
-  - [Salesforce Apps](#salesforce-apps)
-  - [Declarative Development](#declarative-development)
-  - [Org](#org)
-  - [Objects](#objects)
-  - [Object Relationships](#object-relationships)
-  - [Metadata](#metadata)
-  - [Salesforce Classic vs Lightning Experience](#salesforce-classic-vs-lightning-experience)
-  - [Lightning components, Apex, and Visualforce pages](#lightning-components--apex--and-visualforce-pages)
-  - [Salesforce APIs](#salesforce-apis)
-  - [Heroku](#heroku)
-  - [Permissions](#permissions)
-  - [Formulas & Validation](#formulas---validation)
-  - [Navigation](#Navigation)
+---
 
-### Other Pages
+## Other Pages
 
 - [Apex](/Apex.md)
 - [Lightning](/Lightning.md)
 - [Misc](/Misc.md)
 - [SOQL](/SOQL.md)
 - [Packaging and Distributing Apps](/Packaging.md)
+- [Payment Processing](Payment-Processing.md)
 - [REST API](/REST-API.md)
 - [SFDX](/SFDX.md)
 
