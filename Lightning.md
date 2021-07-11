@@ -1,7 +1,5 @@
 # Lightning Components
 
-Lightning Web Components and Aura
-
 - [Lightning Components](#lightning-components)
   - [General](#general)
   - [Aura Components](#aura-components)
@@ -122,6 +120,10 @@ Lightning Components: Client side UI rendering
   - `action.setCallback(scope, callbackFunction);`
   - `action.setCallback(this, function(response) { ... });`
   - Callback functions take a single parameter, response, which is an opaque object that provides the returned data, if any, and various details about the status of the request.
+- [Component Facets](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_facets.htm)
+  - A facet is any attribute of type `Aura.Component[]`
+  - The body attribute is an **example** of a facet. The body attribute has type Aura.Component[]. It can be an array of one component, or an empty array, but it's always an array.
+  - Use this type as a placeholder for a block of markup (Example if you want to set the same header/footers accross all your pages)
 
 ---
 
