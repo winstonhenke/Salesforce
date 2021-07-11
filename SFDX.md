@@ -33,6 +33,45 @@ Force:mdapi
 
 ## TODO
 
+### Example 1 - Diff Flow Versions
+
+`sfdx auth:web:login -a Some-Alias-Here -r https://somedomain.my.salesforce.com`
+
+`sfdx config:set defaultusername=Some-Alias-Here`
+
+`sfdx force:mdapi:describemetadata`
+
+Update `manifest/package.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>File_Upload_Screen_Flow-14</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>File_Upload_Screen_Flow-15</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>File_Upload_Screen_Flow-16</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>File_Upload_Screen_Flow-17</members>
+        <name>Flow</name>
+    </types>
+    <version>51.0</version>
+</Package>
+```
+
+Retrieve meta data: `sfdx force:mdapi:retrieve --wait 10 --retrievetargetdir ./sfdx-output --unpackaged ./manifest/package.xml`
+
+---
+
+### Example 2
+
 Lets say I want to compare two profiles. I can...
 
 Check the meta data api name for "profiles": `sfdx force:mdapi:describemetadata`
