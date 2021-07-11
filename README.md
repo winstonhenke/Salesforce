@@ -42,10 +42,11 @@ Notes from learning about Salesforce
 - [Apex](/Apex.md)
 - [Lightning](/Lightning.md)
 - [Misc](/Misc.md)
-- [SOQL](/SOQL.md)
 - [Packaging and Distributing Apps](/Packaging.md)
 - [Payment Processing](Payment-Processing.md)
 - [REST API](/REST-API.md)
+- [Security](Security.md)
+- [SOQL](/SOQL.md)
 - [SFDX](/SFDX.md)
 
 ---
