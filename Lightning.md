@@ -51,6 +51,7 @@ Lightning Components: Client side UI rendering
 ## Aura Components
 
 - [Aura Components Basics](https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics?trail_id=lex_dev&trailmix_slug=getting-started)
+  - [Beyond the basics](https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_next_steps)
 - In the Aura component programming model, a **component** is a bundle of code
   - Aura components are made up of Javascript controllers, stylesheets, XML markup that uses both static HTML tags with custom Aura component tags, and more
   - Related resources are “auto-wired” to each other, and together they make up the component bundle
